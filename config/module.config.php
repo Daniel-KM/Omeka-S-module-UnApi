@@ -9,7 +9,7 @@ return [
     ],
     'controllers' => [
         'invokables' => [
-            'Unapi\Controller\Index' => Controller\IndexController::class,
+            Controller\IndexController::class => Controller\IndexController::class,
         ],
     ],
     'router' => [
@@ -20,7 +20,7 @@ return [
                     'route' => '/unapi',
                     'defaults' => [
                         '__NAMESPACE__' => 'UnApi\Controller',
-                        'controller' => 'Index',
+                        'controller' => 'IndexController',
                         'action' => 'index',
                     ],
                 ],
