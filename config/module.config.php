@@ -7,6 +7,11 @@ return [
             dirname(__DIR__) . '/view',
         ],
     ],
+    'form_elements' => [
+        'invokables' => [
+            Form\ConfigForm::class => Form\ConfigForm::class,
+        ],
+    ],
     'controllers' => [
         'invokables' => [
             Controller\IndexController::class => Controller\IndexController::class,
@@ -25,6 +30,11 @@ return [
                     ],
                 ],
             ],
+        ],
+    ],
+    'unapi' => [
+        'config' => [
+            'unapi_public_server' => true,
         ],
     ],
 ];

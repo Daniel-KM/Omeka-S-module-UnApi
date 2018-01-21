@@ -10,13 +10,12 @@ class IndexController extends AbstractActionController
     {
         $id = $this->params()->fromQuery('id');
         $format = $this->params()->fromQuery('format');
-        $response = $this->getResponse();
 
-        if (!$id) {
+        if (empty($id)) {
             $content = '<formats><format name="rdf_dc" type="application/xml"/></formats>';
         } else {
             $item = $this->api()->read('items', $id)->getContent();
-            if (!$format) {
+            if (empty($format)) {
                 $content = sprintf('<formats id="%s"><format name="rdf_dc" type="application/xml"/></formats>', htmlspecialchars($id));
             } else {
                 // Map requested format to valid EasyRdf format.
@@ -31,6 +30,7 @@ class IndexController extends AbstractActionController
             }
         }
 
+        $response = $this->getResponse();
         $response->setContent($content);
         $response->getHeaders()->addHeaderLine('Content-Type', 'application/xml');
         return $response;
