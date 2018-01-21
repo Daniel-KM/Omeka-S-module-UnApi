@@ -2,9 +2,7 @@
 namespace UnApi\Controller;
 
 use EasyRdf_Graph;
-use Omeka\Mvc\Exception;
 use Zend\Mvc\Controller\AbstractActionController;
-use Zend\View\Model\ViewModel;
 
 class IndexController extends AbstractActionController
 {

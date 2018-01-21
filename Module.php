@@ -12,17 +12,18 @@ class Module extends AbstractModule
         return include __DIR__ . '/config/module.config.php';
     }
 
-    public function attachListeners(SharedEventManagerInterface $sharedEventManager) {
+    public function attachListeners(SharedEventManagerInterface $sharedEventManager)
+    {
         $sharedEventManager->attach(
             'Omeka\Controller\Admin\Item',
             'view.layout',
             function (EventInterface $event) {
-                $event->getTarget()->headLink(array(
-                    'rel'   => 'unapi-server',
-                    'type'  => 'application/xml',
+                $event->getTarget()->headLink([
+                    'rel' => 'unapi-server',
+                    'type' => 'application/xml',
                     'title' => 'unAPI',
-                    'href'  => $event->getTarget()->url('unapi'),
-                ));
+                    'href' => $event->getTarget()->url('unapi'),
+                ]);
             }
         );
         $sharedEventManager->attach(
@@ -45,4 +46,3 @@ class Module extends AbstractModule
         );
     }
 }
-
