@@ -29,7 +29,8 @@ class IndexController extends AbstractActionController
                     default:
                         $easyRdfFormat = 'rdfxml';
                         $graph = new EasyRdf_Graph;
-                        $graph->parse(json_encode($item), 'jsonld');
+                        $graph->parse(json_encode($item, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE), 'jsonld');
+
                         $content = $graph->serialise($easyRdfFormat);
                 }
             }
